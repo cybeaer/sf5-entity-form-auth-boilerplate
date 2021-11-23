@@ -1,0 +1,26 @@
+doctrine:
+    dbal:
+        url: 'sqlite:///%kernel.project_dir%/var/data.db'
+        # DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
+
+        #mysql example
+        #host: some_server
+        #    port: 3306
+        #    dbname: db_name
+        #    user: db_user
+        #    password: db_pass
+        #    driver: pdo_mysql
+        #    server_version: '5.7'
+        #    mapping_types:
+        #        enum: string
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            App:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'App\Entity'
+                alias: App
